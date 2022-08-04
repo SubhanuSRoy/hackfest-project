@@ -1,29 +1,16 @@
 import React, { useEffect, useState } from "react";
 import AltNav from "../AltNav/AltNav";
-import BarChart from "../BarChart/BarChart";
 
-function IndustrySearch({ searchTerm }) {
-  const [indList, setIndList] = useState([]);
-
-  const [graphData, setGraphData] = useState({
-    label: indList.map((data) => data.SupplierName),
-    datasets: [
-      {
-        label: "Rating",
-        data: indList.map((data) => data.Rating),
-        backgroundColor: ["#f3ba2f","#50af95","#2a71d0","#3ab"],
-        borderColor:"black",
-        borderWidth:2,
-      },
-    ],
-  });
+function CompanySearch({ searchTerm }) {
+  const [comp, setcomp] = useState({});
+  // const [keys, setKeys] = useState([]);
   useEffect(() => {
-    const indList = JSON.parse(localStorage.getItem("industry"));
-    if (indList) {
-      setIndList(indList);
-      
+    const company = JSON.parse(localStorage.getItem("company"));
+    if (company) {
+      setcomp(company);
     }
-    console.log(indList);
+    console.log(comp);
+    // setKeys(Object.keys(company));
   }, []);
   return (
     <main>
@@ -32,7 +19,7 @@ function IndustrySearch({ searchTerm }) {
         <section>
           <div
             id="main"
-            className="main-content flex-1 bg-gray-100 mt-12 md:mt-12 pb-24 md:pb-5"
+            className="main-content flex-1 bg-gray-100 mt-12 md:mt-0 pb-24 md:pb-5"
           >
             <div className="bg-gray-800 pt-3">
               <div className="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
@@ -41,29 +28,30 @@ function IndustrySearch({ searchTerm }) {
             </div>
 
             <div className="flex flex-wrap">
-              {indList.map((key) => {
+              {/* {keys.forEach((key) => {
+                // console.log(`${key}: ${comp[key]}`);
                 return (
-                  <div className="w-full md:w-1/3 p-4">
-                    <div className="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
-                      <div className="flex flex-row items-center">
-                        <div className="flex-shrink pr-4">
-                          <div className="rounded-full p-5 bg-green-600">
-                            <i className="fa fa-wallet fa-2x fa-inverse"></i>
+                    <div className="w-full md:w-1/3 p-4">
+                      <div className="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-600 rounded-lg shadow-xl p-5">
+                        <div className="flex flex-row items-center">
+                          <div className="flex-shrink pr-4">
+                            <div className="rounded-full p-5 bg-pink-600">
+                              <i className="fa fa-wallet fa-2x fa-inverse"></i>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
-                          <p className="font-bold text-2xl">
-                            <span className="text-green-500">Rating: </span>
-                            {key.Rating}
-                          </p>
+                          <div className="flex-1 text-right md:text-center">
+                            <h1>{key.SupplierName}</h1>
+                            <p className="font-bold text-2xl">
+                              <span className="text-pink-500">{key}</span>
+                              {comp[key]}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
+                  );
               })}
-              {indList.map((key) => {
+              {comp.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-600 rounded-lg shadow-xl p-5">
@@ -85,7 +73,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {comp.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
@@ -109,7 +97,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {comp.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-600 rounded-lg shadow-xl p-5">
@@ -133,7 +121,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {comp.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-600 rounded-lg shadow-xl p-5">
@@ -154,19 +142,48 @@ function IndustrySearch({ searchTerm }) {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
             </div>
 
             <div className="flex flex-row flex-wrap flex-grow mt-2">
               <div className="w-full md:w-1/2 xl:w-1/3 p-6">
-                <div className="bg-white border-transparent rounded-lg shadow-xl">
+                {/* <div className="bg-white border-transparent rounded-lg shadow-xl">
                         <div className="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                            <h className="font-bold uppercase text-gray-600">Rating Comparison</h>
+                            <h className="font-bold uppercase text-gray-600">Graph</h>
                         </div>
                         <div className="p-5">
-                            <BarChart chartData={graphData}/>
+                            <canvas id="chartjs-7" className="chartjs" width="undefined" height="undefined"></canvas>
+                            <script>
+                                new Chart(document.getElementById("chartjs-7"), {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["January", "February", "March", "April"],
+                                        "datasets": [{
+                                            "label": "Page Impressions",
+                                            "data": [10, 20, 30, 40],
+                                            "borderColor": "rgb(255, 99, 132)",
+                                            "backgroundColor": "rgba(255, 99, 132, 0.2)"
+                                        }, {
+                                            "label": "Adsense Clicks",
+                                            "data": [5, 15, 10, 30],
+                                            "type": "line",
+                                            "fill": false,
+                                            "borderColor": "rgb(54, 162, 235)"
+                                        }]
+                                    },
+                                    "options": {
+                                        "scales": {
+                                            "yAxes": [{
+                                                "ticks": {
+                                                    "beginAtZero": true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
                         </div>
-                    </div>
+                    </div> */}
               </div>
 
               <div className="w-full md:w-1/2 xl:w-1/3 p-6">
@@ -255,7 +272,7 @@ function IndustrySearch({ searchTerm }) {
                     </div> */}
               </div>
 
-              {/* <div className="w-full md:w-1/2 xl:w-1/3 p-6">
+              <div className="w-full md:w-1/2 xl:w-1/3 p-6">
                 <div className="bg-white border-transparent rounded-lg shadow-xl">
                   <div className="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                     <h2 className="font-bold uppercase text-gray-600">Graph</h2>
@@ -294,7 +311,7 @@ function IndustrySearch({ searchTerm }) {
                     </p>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </section>
@@ -303,4 +320,4 @@ function IndustrySearch({ searchTerm }) {
   );
 }
 
-export default IndustrySearch;
+export default CompanySearch;

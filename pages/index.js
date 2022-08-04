@@ -7,11 +7,13 @@ import MetricCard from "../components/MetricCard/MetricCard";
 import staticData from "../data/Search-Data.js";
 import axios from "axios";
 import IndustrySearch from "../components/IndustrySearch/IndustrySearch";
+import CompanySearch from "../components/CompanySearch/CompanySearch";
 
 export default function Home() {
   const baseURL = "https://super-backend-server.herokuapp.com";
 
-  const [searchIndustry, setSearchIndustry] = useState("happy");
+  const [isIndustry, setIsIndustry] = useState(false)
+  const [searchIndustry, setSearchIndustry] = useState("");
   
   const sendIndustrySearch = (event) => {
     event.preventDefault();
@@ -29,8 +31,9 @@ export default function Home() {
       });
 
     setSearchIndustry("");
+    setIsIndustry(true);
   };
-  const [searchCompany, setSearchCompany] = useState(" ");
+  const [searchCompany, setSearchCompany] = useState("");
   const sendCompanySearch = (event) => {
     event.preventDefault();
     // console.log(response);
@@ -48,7 +51,8 @@ export default function Home() {
       .catch((error) => {
         console.log(error.message);
       });
-    setSearchCompany(" ");
+    setSearchCompany("");
+    setIsIndustry(false);
   };
 
   
@@ -63,7 +67,7 @@ export default function Home() {
       <header>
         <nav
           aria-label="menu nav"
-          className="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0"
+          className="bg-gray-800 pt-4 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0"
         >
           <div className="flex flex-wrap items-center">
             <div className="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
@@ -110,7 +114,7 @@ export default function Home() {
                     id="search"
                     name="searchCompany"
                     value={searchCompany}
-                    placeholder="Search by Industry"
+                    placeholder="Search by Company"
                     onChange={(event) => setSearchCompany(event.target.value)}
                     className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                   ></input>
@@ -192,7 +196,7 @@ export default function Home() {
                       <a
                         href="#"
                         className="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"
-                      >
+                      > 
                         <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
                       </a>
                     </div>
@@ -203,7 +207,7 @@ export default function Home() {
           </div>
         </nav>
       </header>
-      <IndustrySearch />
+    {isIndustry? <IndustrySearch searchTerm="Top 3 Performers"/> : <CompanySearch searchTerm={searchCompany} />}
       
     </div>
   );
