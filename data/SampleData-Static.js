@@ -1,222 +1,221 @@
 const data = [
-  {
-    "IT & Infrastructure": [
-      {
-        "Supplier Name": "Infosys",
+  [
+    {
+      "Supplier Name": "Infosys",
 
-        Region: "APAC",
+      Region: "APAC",
 
-        Country: "India",
+      Country: "India",
 
-        Function: "IT & Infrastructure",
+      Function: "IT & Infrastructure",
 
-        Service: "Applications Development",
+      Service: "Applications Development",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: "90",
+      Rating: "90",
 
-        "Average Delivery Time": "90",
+      "Average Delivery Time": "90",
 
-        "Number of Escalations": "5",
+      "Number of Escalations": "5",
 
-        Year: "2018",
+      Year: "2018",
 
-        Resources: "10000",
-      },
-      {
-        "Supplier Name": "Infosys",
+      Resources: "10000",
+    },
+    {
+      "Supplier Name": "Infosys",
 
-        Region: "APAC",
+      Region: "APAC",
 
-        Country: "India",
+      Country: "India",
 
-        Function: "IT & Infrastructure",
+      Function: "IT & Infrastructure",
 
-        Service: "Applications Development",
+      Service: "Applications Development",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: "90",
+      Rating: "90",
 
-        "Average Delivery Time": "90",
+      "Average Delivery Time": "90",
 
-        "Number of Escalations": "5",
+      "Number of Escalations": "5",
 
-        Year: "2018",
+      Year: "2018",
 
-        Resources: "10000",
-      },
-      {
-        "Supplier Name": "Infosys",
+      Resources: "10000",
+    },
+    {
+      "Supplier Name": "Infosys",
 
-        Region: "APAC",
+      Region: "APAC",
 
-        Country: "India",
+      Country: "India",
 
-        Function: "IT & Infrastructure",
+      Function: "IT & Infrastructure",
 
-        Service: "Applications Development",
+      Service: "Applications Development",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: "90",
+      Rating: "90",
 
-        "Average Delivery Time": "90",
+      "Average Delivery Time": "90",
 
-        "Number of Escalations": "5",
+      "Number of Escalations": "5",
 
-        Year: "2018",
+      Year: "2018",
 
-        Resources: "10000",
-      },
-    ],
-  },
-  {
-    Consulting: [
-      {
-        "Supplier Name": "Genpact",
+      Resources: "10000",
+    },
+  ],
+  ,
+  [
+    {
+      "Supplier Name": "Genpact",
 
-        Region: "North America",
+      Region: "North America",
 
-        Country: "United States",
+      Country: "United States",
 
-        Function: "Consulting",
+      Function: "Consulting",
 
-        Service: "Applications Development & Maintenance",
+      Service: "Applications Development & Maintenance",
 
-        "Avg. Cost($)": "150k",
+      "Avg. Cost($)": "150k",
 
-        Rating: 80,
+      Rating: 80,
 
-        "Average Delivery Time": "180",
+      "Average Delivery Time": "180",
 
-        "Number of Escalations": "40",
+      "Number of Escalations": "40",
 
-        Year: "2017",
+      Year: "2017",
 
-        Resources: "6000",
-      },
-      {
-        "Supplier Name": "Genpact",
+      Resources: "6000",
+    },
+    {
+      "Supplier Name": "Genpact",
 
-        Region: "North America",
+      Region: "North America",
 
-        Country: "United States",
+      Country: "United States",
 
-        Function: "Consulting",
+      Function: "Consulting",
 
-        Service: "Applications Development & Maintenance",
+      Service: "Applications Development & Maintenance",
 
-        "Avg. Cost($)": "150k",
+      "Avg. Cost($)": "150k",
 
-        Rating: 80,
+      Rating: 80,
 
-        "Average Delivery Time": "180",
+      "Average Delivery Time": "180",
 
-        "Number of Escalations": "40",
+      "Number of Escalations": "40",
 
-        Year: "2017",
+      Year: "2017",
 
-        Resources: "6000",
-      },
-      {
-        "Supplier Name": "Genpact",
+      Resources: "6000",
+    },
+    {
+      "Supplier Name": "Genpact",
 
-        Region: "North America",
+      Region: "North America",
 
-        Country: "United States",
+      Country: "United States",
 
-        Function: "Consulting",
+      Function: "Consulting",
 
-        Service: "Applications Development & Maintenance",
+      Service: "Applications Development & Maintenance",
 
-        "Avg. Cost($)": "150k",
+      "Avg. Cost($)": "150k",
 
-        Rating: 80,
+      Rating: 80,
 
-        "Average Delivery Time": "180",
+      "Average Delivery Time": "180",
 
-        "Number of Escalations": "40",
+      "Number of Escalations": "40",
 
-        Year: "2017",
+      Year: "2017",
 
-        Resources: "6000",
-      },
-    ],
-  },
-  {
-    HR: [
-      {
-        "Supplier Name": "Capgemini",
+      Resources: "6000",
+    },
+  ],
+  ,
+  [
+    {
+      "Supplier Name": "Capgemini",
 
-        Region: "Europe",
+      Region: "Europe",
 
-        Country: "France",
+      Country: "France",
 
-        Function: "HR",
+      Function: "HR",
 
-        Service: "Service Desk",
+      Service: "Service Desk",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: 85,
+      Rating: 85,
 
-        "Average Delivery Time": "270",
+      "Average Delivery Time": "270",
 
-        "Number of Escalations": "150",
+      "Number of Escalations": "150",
 
-        Year: "2016",
+      Year: "2016",
 
-        Resources: "5000",
-      },
-      {
-        "Supplier Name": "Capgemini",
+      Resources: "5000",
+    },
+    {
+      "Supplier Name": "Capgemini",
 
-        Region: "Europe",
+      Region: "Europe",
 
-        Country: "France",
+      Country: "France",
 
-        Function: "HR",
+      Function: "HR",
 
-        Service: "Service Desk",
+      Service: "Service Desk",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: 85,
+      Rating: 85,
 
-        "Average Delivery Time": "270",
+      "Average Delivery Time": "270",
 
-        "Number of Escalations": "150",
+      "Number of Escalations": "150",
 
-        Year: "2016",
+      Year: "2016",
 
-        Resources: "5000",
-      },
-      {
-        "Supplier Name": "Capgemini",
+      Resources: "5000",
+    },
+    {
+      "Supplier Name": "Capgemini",
 
-        Region: "Europe",
+      Region: "Europe",
 
-        Country: "France",
+      Country: "France",
 
-        Function: "HR",
+      Function: "HR",
 
-        Service: "Service Desk",
+      Service: "Service Desk",
 
-        "Avg. Cost($)": "100k",
+      "Avg. Cost($)": "100k",
 
-        Rating: 85,
+      Rating: 85,
 
-        "Average Delivery Time": "270",
+      "Average Delivery Time": "270",
 
-        "Number of Escalations": "150",
+      "Number of Escalations": "150",
 
-        Year: "2016",
+      Year: "2016",
 
-        Resources: "5000",
-      },
-    ],
-  },
+      Resources: "5000",
+    },
+  ],
+  ,
 ];
 export default data;
+
+[[{}, {}, {}], [], []];
