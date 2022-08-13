@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import SearchContext from "../../context/SearchContext/SearchContext";
 import AltNav from "../AltNav/AltNav";
 import BarChart from "../BarChart/BarChart";
 
 function IndustrySearch({ searchTerm }) {
-  const [indList, setIndList] = useState([]);
+  const { domain, setDomain, setdomainKeyword, domainKeyword } =useContext(SearchContext);
 
-  const [graphData, setGraphData] = useState({
-    label: indList.map((data) => data.SupplierName),
-    datasets: [
-      {
-        label: "Rating",
-        data: indList.map((data) => data.Rating),
-        backgroundColor: ["#f3ba2f","#50af95","#2a71d0","#3ab"],
-        borderColor:"black",
-        borderWidth:2,
-      },
-    ],
-  });
-  useEffect(() => {
-    const indList = JSON.parse(localStorage.getItem("industry"));
-    if (indList) {
-      setIndList(indList);
-      
-    }
-    console.log(indList);
-  }, []);
+  // const [graphData, setGraphData] = useState({
+  //   label: domain.map((data) => data.SupplierName),
+  //   datasets: [
+  //     {
+  //       label: "Rating",
+  //       data: domain.map((data) => data.Rating),
+  //       backgroundColor: ["#f3ba2f", "#50af95", "#2a71d0", "#3ab"],
+  //       borderColor: "black",
+  //       borderWidth: 2,
+  //     },
+  //   ],
+  // });
+  
   return (
     <main>
       <div className="flex flex-col md:flex-row">
@@ -41,7 +35,20 @@ function IndustrySearch({ searchTerm }) {
             </div>
 
             <div className="flex flex-wrap">
-              {indList.map((key) => {
+              {domain.map((key) => {
+                return (
+                  <div className="w-full md:w-1/3 p-4">
+                    <div className="bg-gradient-to-b from-gray-200 to-gray-100 border-b-4 border-gray-600 rounded-lg shadow-xl p-5">
+                      <div className="flex flex-row items-center">
+                        <div className="flex-1 text-right md:text-center font-bold uppercase">
+                          <h1>{key.SupplierName}</h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              {domain.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
@@ -52,7 +59,6 @@ function IndustrySearch({ searchTerm }) {
                           </div>
                         </div>
                         <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
                           <p className="font-bold text-2xl">
                             <span className="text-green-500">Rating: </span>
                             {key.Rating}
@@ -63,7 +69,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {domain.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-600 rounded-lg shadow-xl p-5">
@@ -74,7 +80,6 @@ function IndustrySearch({ searchTerm }) {
                           </div>
                         </div>
                         <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
                           <p className="font-bold text-2xl">
                             <span className="text-pink-500">Avg Cost $: </span>
                             {" " + key.AvgCost}
@@ -85,7 +90,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {domain.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
@@ -96,7 +101,6 @@ function IndustrySearch({ searchTerm }) {
                           </div>
                         </div>
                         <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
                           <p className="font-bold text-2xl">
                             <span className="text-yellow-500">
                               No. Of Escalations:{" "}
@@ -109,7 +113,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {domain.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-600 rounded-lg shadow-xl p-5">
@@ -120,7 +124,6 @@ function IndustrySearch({ searchTerm }) {
                           </div>
                         </div>
                         <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
                           <p className="font-bold text-2xl">
                             <span className="text-blue-500">
                               Avg Delivery Time:{" "}
@@ -133,7 +136,7 @@ function IndustrySearch({ searchTerm }) {
                   </div>
                 );
               })}
-              {indList.map((key) => {
+              {domain.map((key) => {
                 return (
                   <div className="w-full md:w-1/3 p-4">
                     <div className="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-600 rounded-lg shadow-xl p-5">
@@ -144,7 +147,6 @@ function IndustrySearch({ searchTerm }) {
                           </div>
                         </div>
                         <div className="flex-1 text-right md:text-center">
-                          <h1>{key.SupplierName}</h1>
                           <p className="font-bold text-2xl">
                             <span className="text-red-500">Resources: </span>
                             {key.Resources}
@@ -158,7 +160,7 @@ function IndustrySearch({ searchTerm }) {
             </div>
 
             <div className="flex flex-row flex-wrap flex-grow mt-2">
-              <div className="w-full md:w-1/2 xl:w-1/3 p-6">
+              {/* <div className="w-full md:w-1/2 xl:w-1/3 p-6">
                 <div className="bg-white border-transparent rounded-lg shadow-xl">
                         <div className="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                             <h className="font-bold uppercase text-gray-600">Rating Comparison</h>
@@ -167,7 +169,7 @@ function IndustrySearch({ searchTerm }) {
                             <BarChart chartData={graphData}/>
                         </div>
                     </div>
-              </div>
+              </div> */}
 
               <div className="w-full md:w-1/2 xl:w-1/3 p-6">
                 {/* <div className="bg-white border-transparent rounded-lg shadow-xl">

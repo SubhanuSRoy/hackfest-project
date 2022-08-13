@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AltNav from "../components/AltNav/AltNav";
 import Header from "../components/Header/Header";
 import MetricCard from "../components/MetricCard/MetricCard";
@@ -8,54 +8,75 @@ import staticData from "../data/Search-Data.js";
 import axios from "axios";
 import IndustrySearch from "../components/IndustrySearch/IndustrySearch";
 import CompanySearch from "../components/CompanySearch/CompanySearch";
+import SearchContext from "../context/SearchContext/SearchContext";
 
 export default function Home() {
-  const baseURL = "https://super-backend-server.herokuapp.com";
+  const baseURL = "https://new-supur-backend.herokuapp.com";
 
-  const [isIndustry, setIsIndustry] = useState(false)
-  const [searchIndustry, setSearchIndustry] = useState("");
-  
+  const [isIndustry, setIsIndustry] = useState(false);
+  const { domain, setDomain, setdomainKeyword, domainKeyword } =
+    useContext(SearchContext);
+
   const sendIndustrySearch = (event) => {
     event.preventDefault();
-    // console.log(response);
     axios
       .post(`${baseURL}/domainSearch`, {
-        SearchedString: searchIndustry,
+        SearchedString: domainKeyword,
       })
       .then((response) => {
-        console.log(response.data.List);
-        localStorage.setItem("industry", JSON.stringify(response.data.List));
+        setDomain(response.data.List);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    console.log(domain);
+    setIsIndustry(true);
+  };
+  const {
+    company,
+    setCompany,
+    compKeyword,
+    setcompKeyword,
+    predictionYear,
+    setPredictionYear,
+    predictionPerfromance,
+    setPredictionPerfromance,
+  } = useContext(SearchContext);
+  const sendCompanySearch = (event) => {
+    event.preventDefault();
+    axios
+      .post(`${baseURL}/companySearch`, {
+        SearchedString: compKeyword,
+      })
+      .then((response) => {
+        console.log("data in index", response.data);
+        setCompany(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    axios
+      .post(`${baseURL}/predictionSearch`, {
+        SearchedString: compKeyword,
+      })
+      .then((response) => {
+        console.log("data in prediction", response.data.Years);
+        if (response.data.Years) {
+          setPredictionYear(response.data.Years);
+        }
+        if (response.data.Performance) {
+          setPredictionPerfromance(response.data.Performance);
+        }
       })
       .catch((error) => {
         console.log(error.message);
       });
 
-    setSearchIndustry("");
-    setIsIndustry(true);
-  };
-  const [searchCompany, setSearchCompany] = useState("");
-  const sendCompanySearch = (event) => {
-    event.preventDefault();
-    // console.log(response);
-    axios
-      .post(`${baseURL}/companySearch`, {
-        SearchedString: searchCompany,
-      })
-      .then((response) => {
-        // console.log(response);
-        // localStorage.setItem(
-        //   'adminToken',
-        //   JSON.stringify(response.data.token)
-        // )
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-    setSearchCompany("");
+    // console.log(predictionYear);
+    // console.log(predictionPerfromance);
     setIsIndustry(false);
   };
 
-  
   // console.log(staticData);
   return (
     <div className="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
@@ -83,11 +104,11 @@ export default function Home() {
                 <form onSubmit={sendIndustrySearch}>
                   <input
                     aria-label="search"
-                    id="search"
-                    name="searchIndustry"
-                    value={searchIndustry}
+                    id="searchIndustry"
+                    name="domainKeyword"
+                    value={domainKeyword}
                     placeholder="Search by Industry"
-                    onChange={(event) => setSearchIndustry(event.target.value)}
+                    onChange={(event) => setdomainKeyword(event.target.value)}
                     className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                   ></input>
                   <button
@@ -111,11 +132,11 @@ export default function Home() {
                 <form onSubmit={sendCompanySearch}>
                   <input
                     aria-label="search"
-                    id="search"
-                    name="searchCompany"
-                    value={searchCompany}
+                    id="searchCompany"
+                    name="company"
+                    value={compKeyword}
                     placeholder="Search by Company"
-                    onChange={(event) => setSearchCompany(event.target.value)}
+                    onChange={(event) => setcompKeyword(event.target.value)}
                     className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                   ></input>
                   <button
@@ -134,81 +155,14 @@ export default function Home() {
                 </form>
               </span>
             </div>
-
-            <div className="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
-              <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
-                <li className="flex-1 md:flex-none md:mr-3">
-                  <a
-                    className="inline-block py-2 px-4 text-white no-underline"
-                    href="#"
-                  >
-                    Active
-                  </a>
-                </li>
-                <li className="flex-1 md:flex-none md:mr-3">
-                  <a
-                    className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                    href="#"
-                  >
-                    link
-                  </a>
-                </li>
-                <li className="flex-1 md:flex-none md:mr-3">
-                  <div className="relative inline-block">
-                    <button className="drop-button text-white py-2 px-2">
-                      {" "}
-                      <span className="pr-2">
-                        <i className="em em-robot_face"></i>
-                      </span>{" "}
-                      Hi, User{" "}
-                      <svg
-                        className="h-3 fill-current inline"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </button>
-                    <div
-                      id="myDropdown"
-                      className="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible"
-                    >
-                      <input
-                        type="text"
-                        className="drop-search p-2 text-gray-600"
-                        placeholder="Search.."
-                        id="myInput"
-                        // onkeyup="filterDD('myDropdown','myInput')"
-                      />
-                      <a
-                        href="#"
-                        className="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"
-                      >
-                        <i className="fa fa-user fa-fw"></i> Profile
-                      </a>
-                      <a
-                        href="#"
-                        className="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"
-                      >
-                        <i className="fa fa-cog fa-fw"></i> Settings
-                      </a>
-                      <div className="border border-gray-800"></div>
-                      <a
-                        href="#"
-                        className="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"
-                      > 
-                        <i className="fas fa-sign-out-alt fa-fw"></i> Log Out
-                      </a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </div>
         </nav>
       </header>
-    {isIndustry? <IndustrySearch searchTerm="Top 3 Performers"/> : <CompanySearch searchTerm={searchCompany} />}
-      
+      {isIndustry ? (
+        <IndustrySearch searchTerm={`Top 3 performers for ${domainKeyword}`} />
+      ) : (
+        <CompanySearch />
+      )}
     </div>
   );
 }
