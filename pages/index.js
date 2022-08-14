@@ -30,6 +30,8 @@ export default function Home() {
     console.log(domain);
     setIsIndustry(true);
     setIsNumber(false);
+    setcompKeyword("");
+    setnumberKeyword();
   };
   const {
     company,
@@ -54,27 +56,12 @@ export default function Home() {
       .catch((error) => {
         console.log(error.message);
       });
-    axios
-      .post(`${baseURL}/predictionSearch`, {
-        SearchedString: compKeyword,
-      })
-      .then((response) => {
-        console.log("data in prediction", response.data.Years);
-        if (response.data.Years) {
-          setPredictionYear(response.data.Years);
-        }
-        if (response.data.Performance) {
-          setPredictionPerfromance(response.data.Performance);
-        }
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-
     // console.log(predictionYear);
     // console.log(predictionPerfromance);
     setIsIndustry(false);
     setIsNumber(false);
+    setnumberKeyword();
+    setdomainKeyword("");
   };
   const { topComp, setTopComp, numberKeyword, setnumberKeyword } =
     useContext(SearchContext);
@@ -93,6 +80,8 @@ export default function Home() {
       });
     setIsIndustry(false);
     setIsNumber(true);
+    setcompKeyword("");
+    setdomainKeyword("");
   };
 
   // console.log(staticData);
@@ -186,7 +175,9 @@ export default function Home() {
                     name="company"
                     value={compKeyword}
                     placeholder="Search by Company"
-                    onChange={(event) => setcompKeyword(event.target.value.toUpperCase())}
+                    onChange={(event) =>
+                      setcompKeyword(event.target.value)
+                    }
                     className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                   ></input>
                   <button

@@ -14,7 +14,7 @@ function NumberSearch() {
         <div className="w-full overflow-x-auto flex flex-wrap justify-center items-center">
           {topComp.map((key) => {
             return (
-              <div className={styles.plan}>
+              <div className={styles.plan} key={key.SupplierName}>
                 <div className={styles.planInner}>
                   {/* <div className="hot">hot</div> */}
                   <div className={styles.entryTitle}>
