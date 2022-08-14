@@ -177,7 +177,7 @@ function CompanySearch() {
                 <div className="bg-white border-transparent rounded-lg shadow-xl">
                   <div className="bg-gradient-to-b from-blue-300 to-blue-100 uppercase text-center text-blue-800 border-b-2 border-blue-300 rounded-lg p-2">
                     <h className="font-bold uppercase text-blue-900 text-center">
-                      Next 10 years prediction of {compKeyword}
+                      See next 5 years prediction of {compKeyword}
                     </h>
                   </div>
                   <div className="p-5 bg-white flex items-center justify-center">
