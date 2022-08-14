@@ -1,72 +1,94 @@
 const data = [
   {
-    "Supplier Name": "Infosys",
-
-    Region: "APAC",
-
-    Country: "India",
-
-    Function: "IT & Infrastructure",
-
-    Service: "Applications Development",
-
-    "Avg. Cost($)": "100k",
-
-    Rating: "90",
-
-    "Average Delivery Time": "90",
-
-    "Number of Escalations": "5",
-
-    Year: "2018",
-
-    Resources: "10000",
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
   },
   {
-    "Supplier Name": "Infosys",
-
-    Region: "APAC",
-
-    Country: "India",
-
-    Function: "IT & Infrastructure",
-
-    Service: "Applications Development",
-
-    "Avg. Cost($)": "100k",
-
-    Rating: "90",
-
-    "Average Delivery Time": "90",
-
-    "Number of Escalations": "5",
-
-    Year: "2018",
-
-    Resources: "10000",
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
   },
   {
-    "Supplier Name": "Infosys",
-
-    Region: "APAC",
-
-    Country: "India",
-
-    Function: "IT & Infrastructure",
-
-    Service: "Applications Development",
-
-    "Avg. Cost($)": "100k",
-
-    Rating: "90",
-
-    "Average Delivery Time": "90",
-
-    "Number of Escalations": "5",
-
-    Year: "2018",
-
-    Resources: "10000",
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
+  },
+  {
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
+  },
+  {
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
+  },
+  {
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
+  },
+  {
+    AverageDeliveryTime: 890,
+    AvgCost: 50,
+    Cost: 999.0983534856828,
+    Country: "Japan",
+    Function: "Applications Development",
+    NumberofEscalations: 375,
+    Rating: 60,
+    Region: "Asia",
+    Resources: 9000,
+    SupplierName: "Infosys",
+    Year: 2018,
   },
 ];
 export default data;

@@ -62,14 +62,14 @@ function CompanySearch() {
   return (
     <main>
       <div className="flex flex-col md:flex-row">
-        <AltNav />
+        {/* <AltNav /> */}
         <section>
           <div
             id="main"
             className="main-content flex-1 bg-gray-100 mt-12 md:mt-0 pb-24 md:pb-5"
           >
             <div className="bg-gray-800 pt-3">
-              <div className="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+              <div className="rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-blue-900 to-blue-400 p-4 shadow text-2xl text-white">
                 <h1 className="font-bold pl-2">
                   Top Performing year of {compKeyword}
                 </h1>
@@ -187,7 +187,7 @@ function CompanySearch() {
                               <span className="text-emerald-500">
                                 Average Delivery Time:{" "}
                               </span>
-                              {company[key]}
+                              {company[key]+"days"}
                             </p>
                           </div>
                         </div>
