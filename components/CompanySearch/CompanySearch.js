@@ -175,38 +175,23 @@ function CompanySearch() {
             <div className="flex justify-center items-center flex-grow mt-2 w-full">
               <div className="w-full md:w-1/2 xl:w-1/3 p-6">
                 <div className="bg-white border-transparent rounded-lg shadow-xl">
-                  <div className="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-center text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                    <h className="font-bold uppercase text-gray-600 text-center">
+                  <div className="bg-gradient-to-b from-blue-300 to-blue-100 uppercase text-center text-blue-800 border-b-2 border-blue-300 rounded-lg p-2">
+                    <h className="font-bold uppercase text-blue-900 text-center">
                       Next 10 years prediction of {compKeyword}
                     </h>
                   </div>
-                  <div className="p-5 flex justify-center items-center">
+                  <div className="p-5 bg-white flex items-center justify-center">
                     <a
                       href="https://plotly-predictor-graph.herokuapp.com/"
                       target="_blank"
                       rel="norefferer"
-                      class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-full shadow-md group"
+                      className="relative inline-block px-4 py-2 font-medium group"
                     >
-                      <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-500 group-hover:translate-x-0 ease">
-                        <svg
-                          class="w-6 h-6"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          ></path>
-                        </svg>
-                      </span>
-                      <span class="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                      <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-blue-500 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                      <span className="absolute inset-0 w-full h-full bg-white border-2 border-blue-500 group-hover:bg-blue-500"></span>
+                      <span className="relative text-blue-500 group-hover:text-white">
                         Predict Now
                       </span>
-                      <span class="relative invisible">Button Text</span>
                     </a>
                   </div>
                 </div>
