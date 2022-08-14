@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import SearchContext from "../../context/SearchContext/SearchContext";
-import AltNav from "../AltNav/AltNav";
-import CustomLineChart from "../CustomLineChart/CustomLineChart";
 
 function CompanySearch() {
   const {
@@ -62,7 +60,7 @@ function CompanySearch() {
   return (
     <main>
       <div className="flex flex-col md:flex-row">
-        {/* <AltNav /> */}
+   
         <section>
           <div
             id="main"
@@ -187,7 +185,7 @@ function CompanySearch() {
                               <span className="text-emerald-500">
                                 Average Delivery Time:{" "}
                               </span>
-                              {company[key]+"days"}
+                              {company[key]+" days"}
                             </p>
                           </div>
                         </div>

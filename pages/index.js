@@ -1,10 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import AltNav from "../components/AltNav/AltNav";
-import Header from "../components/Header/Header";
-import MetricCard from "../components/MetricCard/MetricCard";
-import staticData from "../data/Search-Data.js";
 import axios from "axios";
 import IndustrySearch from "../components/IndustrySearch/IndustrySearch";
 import CompanySearch from "../components/CompanySearch/CompanySearch";

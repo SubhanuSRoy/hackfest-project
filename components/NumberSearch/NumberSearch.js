@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import SearchContext from "../../context/SearchContext/SearchContext";
-import data from "../../data/Search-Data";
-import AltNav from "../AltNav/AltNav";
 import styles from "../NumberSearch/NumberSearch.module.css";
 
 function NumberSearch() {
   const { topComp, numberKeyword, setcompKeyword } = useContext(SearchContext);
   return (
     <div className="flex flex-col md:flex-row">
-      {/* <AltNav /> */}
+  
       <div className="bg-gray-800 pt-3 flex flex-col">
         <div className="rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-blue-900 to-blue-400 p-4 shadow text-2xl text-white">
           <h1 className="font-bold pl-2">Top {numberKeyword} Companies</h1>

@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import SearchContext from "../../context/SearchContext/SearchContext";
-import AltNav from "../AltNav/AltNav";
-import BarChart from "../BarChart/BarChart";
 
 function IndustrySearch({ searchTerm }) {
   const { domain, setDomain, setdomainKeyword, domainKeyword } =useContext(SearchContext);
@@ -22,7 +20,7 @@ function IndustrySearch({ searchTerm }) {
   return (
     <main>
       <div className="flex flex-col md:flex-row">
-        {/* <AltNav /> */}
+       
         <section>
           <div
             id="main"
